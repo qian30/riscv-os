@@ -2,6 +2,8 @@ extern int kprintf(const char *, ...);
 extern int kscanf(const char *, ...);
 extern void kecho(void);
 extern void uart_init(void);
+extern void kalloc_test(void);
+extern void kmem_init(void);
 
 void test_io()
 {
@@ -17,9 +19,9 @@ void test_io()
 void start_kernel(void)
 {
     uart_init();
+    kmem_init();
     kprintf("Hello, RVOS!\n");
-    test_io();
-    kecho();
+    kalloc_test();
 
     while (1)
         ;

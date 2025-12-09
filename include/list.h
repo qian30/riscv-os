@@ -3,15 +3,15 @@
 
 #ifndef container_of
 #define container_of(ptr, type, member) \
-    ((type *) ((char *) (ptr) - offsetof(type, member)))
+    ((type *) ((char *) (ptr) -offsetof(type, member)))
 #endif
 
 #define list_entry(ptr, type, member) container_of(ptr, type, member)
 
-struct list {
+typedef struct list {
     struct list *prev;
     struct list *next;
-};
+} list_t;
 
 static inline void list_init(list_t *head)
 {
