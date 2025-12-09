@@ -21,9 +21,9 @@ static void read_from_uart(char *buf, int maxlen)
             if (pos > 0)
                 pos--;
         } else {
-            buf[pos] = ch;  // 把輸入的字存進 buf
+            buf[pos] = ch; /* 把輸入的字存進 buf */
             pos++;
-            uart_putc(ch);  // 把輸入的字，印在螢幕上
+            uart_putc(ch); /* 把輸入的字，印在螢幕上 */
         }
     }
     buf[pos] = '\0';
