@@ -26,7 +26,7 @@ all: os.elf
 
 # start.o must be the first in dependency!
 os.elf: ${OBJS}
-	${CC} ${CFLAGS}  -Ttext=0x80000000 -o os.elf $^
+	${CC} ${CFLAGS}  -T${LINK_SCRIPT} -o os.elf $^
 	${OBJCOPY} -O binary os.elf os.bin
 
 objs/%.o: ${SRCS_ASM} ${SRCS_C}
