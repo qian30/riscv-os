@@ -4,6 +4,9 @@ extern void kecho(void);
 extern void uart_init(void);
 extern void kalloc_test(void);
 extern void kmem_init(void);
+extern void loadTasks(void);
+extern void sched_init(void);
+extern void schedule(void);
 
 void test_io()
 {
@@ -20,9 +23,13 @@ void start_kernel(void)
 {
     uart_init();
     kmem_init();
+    sched_init();
+    loadTasks();
     kprintf("Hello, RVOS!\n");
-    kalloc_test();
 
+    // kalloc_test();
+
+    schedule();
     while (1)
         ;
 }
