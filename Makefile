@@ -12,9 +12,11 @@ OBJDUMP = ${CROSS_COMPILE}objdump
 LINK_SCRIPT = kernel.ld
 
 SRCS_ASM += $(wildcard ./startup/*.S)
+SRCS_ASM += $(wildcard ./kernel/*.S)
 
 SRCS_C   += $(wildcard ./lib/*.c)
 SRCS_C   += $(wildcard ./kernel/*.c)
+SRCS_C   += $(wildcard ./app/*.c)
 
 INC += -I./include
 
@@ -54,4 +56,4 @@ clean:
 
 .PHONY: indent
 indent:
-	clang-format -i $(SRCS_C) include/*
+	clang-format -i $(SRCS_C) include/*.h
