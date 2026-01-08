@@ -2,11 +2,16 @@ extern int kprintf(const char *, ...);
 extern int kscanf(const char *, ...);
 extern void kecho(void);
 extern void uart_init(void);
-extern void kalloc_test(void);
 extern void kmem_init(void);
-extern void loadTasks(void);
 extern void sched_init(void);
 extern void schedule(void);
+extern void trap_init(void);
+extern void timer_init(void);
+
+/* test */
+extern void kalloc_test(void);
+extern void loadTasks(void);
+extern void timer_test(void);
 
 void test_io()
 {
@@ -23,12 +28,12 @@ void start_kernel(void)
 {
     uart_init();
     kmem_init();
+    trap_init();
+    timer_init();
     sched_init();
-    loadTasks();
+    timer_test();
+    kprintf("\033[2J\033[H");
     kprintf("Hello, RVOS!\n");
-
-    // kalloc_test();
-
     schedule();
     while (1)
         ;
