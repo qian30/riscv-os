@@ -12,7 +12,6 @@ static void myDelay(int Delay)
 static void user_task0(void *p)
 {
     while (1) {
-
         myDelay(DELAY);
         task_yield();
     }

@@ -1,9 +1,9 @@
 #ifndef __TASK_H__
 #define __TASK_H__
 
+#include <stddef.h>
 #include "list.h"
 #include "types.h"
-#include <stddef.h>
 
 /* -------------------------------------------------------------------------- */
 /*                              Task State Enum                               */
